@@ -116,6 +116,7 @@ class IsaacClient {
             //connecto to websocket server
             url = "ws://" + url + ":" + port;
         }
+        console.log (url);
 
         let protocol = "isaac-json-protocol";
         this.socket = new WebSocket(url, protocol);
