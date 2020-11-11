@@ -99,8 +99,24 @@ class IsaacClient {
 
 
     connect(url, port) {
-        //connecto to websocket server
-        url = "ws://" + url + ":" + port;
+
+
+        var doc_url = document.URL;
+        // open the websocket encrypted if this page came on an
+	    // https:// url itself, otherwise unencrypted
+
+        if (doc_url.substring(0, 5) === "https")
+        {
+            //connecto to websocket server
+            //Does OLCF's Slate needs port number ?
+            url = "wss://" + url;
+	    } 
+        else if (doc_url.substring(0, 4) === "http")
+        {
+            //connecto to websocket server
+            url = "ws://" + url + ":" + port;
+        }
+
         let protocol = "isaac-json-protocol";
         this.socket = new WebSocket(url, protocol);
 
