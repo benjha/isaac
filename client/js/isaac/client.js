@@ -109,7 +109,7 @@ class IsaacClient {
         {
             //connecto to websocket server
             //Does OLCF's Slate needs port number ?
-            url = "wss://" + url;
+            url = "wss://" + url + ":" + port;
 	    } 
         else if (doc_url.substring(0, 4) === "http")
         {
