@@ -104,14 +104,11 @@ class IsaacClient {
         var doc_url = document.URL;
         // open the websocket encrypted if this page came on an
 	    // https:// url itself, otherwise unencrypted
-
-        if (doc_url.substring(0, 5) === "https")
+        // if Connecting to Slate
+        if (doc_url.substring(0, 38) === "https://isaac.apps.marble.ccs.ornl.gov")
         {
-            //connecto to websocket server
-            //Does OLCF's Slate needs port number ?
-            //url = "wss://" + url + ":" + port;
             url = "wss://" + url;
-	    } 
+	} 
         else if (doc_url.substring(0, 4) === "http")
         {
             //connecto to websocket server
